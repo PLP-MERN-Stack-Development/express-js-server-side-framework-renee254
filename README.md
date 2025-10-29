@@ -1,62 +1,95 @@
-# Express.js RESTful API Assignment
 
-This assignment focuses on building a RESTful API using Express.js, implementing proper routing, middleware, and error handling.
 
-## Assignment Overview
+##  `README.md` 
 
-You will:
-1. Set up an Express.js server
-2. Create RESTful API routes for a product resource
-3. Implement custom middleware for logging, authentication, and validation
-4. Add comprehensive error handling
-5. Develop advanced features like filtering, pagination, and search
+````markdown
+# 🚀 Product API – Express.js CRUD Assignment (Week 2)
 
-## Getting Started
+This is a simple **RESTful API** built with **Express.js** for managing products.  
+It supports **CRUD operations**, **middleware**, **API key authentication**, and **error handling**.
 
-1. Accept the GitHub Classroom assignment invitation
-2. Clone your personal repository that was created by GitHub Classroom
-3. Install dependencies:
-   ```
-   npm install
-   ```
-4. Run the server:
-   ```
-   npm start
-   ```
+---
 
-## Files Included
+##  Setup
 
-- `Week2-Assignment.md`: Detailed assignment instructions
-- `server.js`: Starter Express.js server file
-- `.env.example`: Example environment variables file
+### 1 Clone the Repo
+```bash
+git clone <your-assignment-repo-url>
+cd <your-folder>
+````
 
-## Requirements
+### 2 Install Dependencies
 
-- Node.js (v18 or higher)
-- npm or yarn
-- Postman, Insomnia, or curl for API testing
+```bash
+npm install
+```
 
-## API Endpoints
+### 3 Environment Variables
 
-The API will have the following endpoints:
+Create a `.env` file in the root folder:
 
-- `GET /api/products`: Get all products
-- `GET /api/products/:id`: Get a specific product
-- `POST /api/products`: Create a new product
-- `PUT /api/products/:id`: Update a product
-- `DELETE /api/products/:id`: Delete a product
+```env
+PORT=3000
+API_KEY=mysecretkey
+```
 
-## Submission
+(Use `.env.example` as reference.)
 
-Your work will be automatically submitted when you push to your GitHub Classroom repository. Make sure to:
+### 4 Start the Server
 
-1. Complete all the required API endpoints
-2. Implement the middleware and error handling
-3. Document your API in the README.md
-4. Include examples of requests and responses
+```bash
+node server.js
+```
 
-## Resources
+Server runs at  **[http://localhost:3000](http://localhost:3000)**
 
-- [Express.js Documentation](https://expressjs.com/)
-- [RESTful API Design Best Practices](https://restfulapi.net/)
-- [HTTP Status Codes](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status) 
+---
+
+##  API Endpoints
+
+| Method | Endpoint              | Description                                                       | Auth Required |
+| ------ | --------------------- | ----------------------------------------------------------------- | ------------- |
+| GET    | `/`                   | Welcome message                                                   | ❌             |
+| GET    | `/api/products`       | Get all products (supports `category`, `search`, `page`, `limit`) | ❌             |
+| GET    | `/api/products/:id`   | Get a single product by ID                                        | ❌             |
+| POST   | `/api/products`       | Create a new product                                              | ✅             |
+| PUT    | `/api/products/:id`   | Update a product by ID                                            | ✅             |
+| DELETE | `/api/products/:id`   | Delete a product by ID                                            | ✅             |
+| GET    | `/api/products-stats` | Get product statistics by category                                | ❌             |
+
+**Auth Header:**
+
+```
+x-api-key: mysecretkey
+```
+
+---
+
+## ⚙️ Middleware Used
+
+* Logger (request details)
+* Authentication (via API key)
+* Validation (checks product data)
+* Global error handler
+
+---
+
+## 📂 Project Structure
+
+```
+📦 plp-express-api
+ ┣ 📄 server.js
+ ┣ 📄 .env.example
+ ┣ 📄 README.md
+ ┣ 📄 package.json
+ ┗ 📁 node_modules/
+```
+
+---
+
+## 🧑‍💻 Author
+
+Developed by **[Tracy Renee]**
+Power Learn Project – Week 2 Assignment
+
+
